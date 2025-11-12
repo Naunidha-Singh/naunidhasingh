@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +17,22 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
+  };
+
+  const handlePageNavigation = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -42,6 +56,18 @@ const Header = () => {
                 {item}
               </button>
             ))}
+            <button
+              onClick={() => handlePageNavigation('/awards')}
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
+            >
+              Awards
+            </button>
+            <button
+              onClick={() => handlePageNavigation('/leadership')}
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
+            >
+              Leadership
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,6 +92,18 @@ const Header = () => {
                   {item}
                 </button>
               ))}
+              <button
+                onClick={() => handlePageNavigation('/awards')}
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium text-left"
+              >
+                Awards
+              </button>
+              <button
+                onClick={() => handlePageNavigation('/leadership')}
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium text-left"
+              >
+                Leadership
+              </button>
             </div>
           </div>
         )}

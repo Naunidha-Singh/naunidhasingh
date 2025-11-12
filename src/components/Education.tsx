@@ -14,34 +14,42 @@ const Education = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 shadow-2xl border border-slate-600/50">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
-              <div className="flex items-center mb-4 md:mb-0">
+            {/* Header row */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+              {/* Left: school + degree */}
+              <div className="flex items-start md:items-center mb-2 md:mb-0 flex-1 min-w-0">
                 <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full mr-4">
                   <GraduationCap className="text-white" size={24} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-2xl font-bold text-white">Purdue University</h3>
-                  <p className="text-blue-400 font-semibold">Bachelor of Science in Artificial Intelligence and Computer Science</p>
+                  <p className="text-blue-400 font-semibold">
+                    Bachelor of Science in Artificial Intelligence and Computer Science
+                  </p>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="flex items-center text-green-400 font-bold text-lg mb-2">
+
+              {/* Right: GPA + Graduation (no wrap) */}
+              <div className="text-right shrink-0 whitespace-nowrap">
+                <div className="flex items-center justify-end text-green-400 font-bold text-lg mb-1">
                   <Award size={20} className="mr-2" />
                   GPA: 3.93
                 </div>
-                <div className="flex items-center text-gray-300">
+                <div className="flex items-center justify-end text-gray-300">
                   <Calendar size={16} className="mr-2" />
-                  Graduating: May 2026
+                  <span>Graduating: May 2026</span>
                 </div>
               </div>
             </div>
 
+            {/* Cards */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-slate-700/50 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-white mb-3">Additional Studies</h4>
                 <ul className="space-y-2 text-gray-300">
                   <li>• Minor in Management</li>
-                  <li>• Minor in Philosophy and Psychology</li>
+                  <li>• Minor in Philosophy</li>
+                  <li>• Minor in Psychology</li>
                   <li>• Certificate of Entrepreneurship</li>
                 </ul>
               </div>
@@ -49,7 +57,7 @@ const Education = () => {
               <div className="bg-slate-700/50 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-white mb-3">Academic Honors</h4>
                 <div className="space-y-2 text-gray-300">
-                  <p className="font-medium text-yellow-400">Dean's List and Semester Honors</p>
+                  <p className="font-medium text-yellow-400">Dean&apos;s List and Semester Honors</p>
                   <ul className="space-y-1 text-sm">
                     <li>• Fall 2023</li>
                     <li>• Spring 2024</li>
@@ -59,6 +67,7 @@ const Education = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

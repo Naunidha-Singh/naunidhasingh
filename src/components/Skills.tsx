@@ -1,19 +1,7 @@
 import React from 'react';
-import { Code, Database, Wrench } from 'lucide-react';
+import { Code, Wrench, Package, Library } from 'lucide-react';
 
 const Skills = () => {
-  const programmingLanguages = [
-    'Java', 'Python', 'C', 'C++', 'R', 'SQL', 'HTML', 'JavaScript', 'ReactNative', 'Flask'
-  ];
-
-  const tools = [
-    'IntelliJ', 'Visual Studio Code', 'Salesforce', 'Tableau Cloud', 'Tableau Desktop', 
-    'Tableau Prep Builder', 'Databricks', 'Canva', 'Adobe Photoshop', 'Microsoft Power BI', 
-    'Microsoft Office', 'GitHub', 'Figma', 'Bash', 'Jupyter Lab & Notebook', 'Docker', 
-    'Linode', 'Defang', 'Pandas', 'Numpy', 'Matplotlib', 'OpenAI', 'OpenCV', 'Selenium', 
-    'Sklearn', 'Beautiful Soup', 'PyTorch', 'OS', 'Seaborn', 'cv2', 'lxml', 'ollama', 'spacy'
-  ];
-
   const SkillCard = ({ title, skills, icon: Icon, gradient }: {
     title: string;
     skills: string[];
@@ -31,7 +19,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <span
             key={index}
-            className="bg-slate-600/50 text-gray-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-500/20 hover:text-blue-300 transition-all duration-200 cursor-default"
+            className="flex items-center bg-slate-600/50 text-gray-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-500/20 hover:text-blue-300 transition-all duration-200 cursor-default"
           >
             {skill}
           </span>
@@ -39,6 +27,33 @@ const Skills = () => {
       </div>
     </div>
   );
+
+  const skillCategories = [
+    {
+      title: "Languages",
+      skills: ['Java', 'Python', 'C', 'C++', 'R', 'SQL', 'HTML', 'JavaScript', 'TypeScript', 'ARM Assembly', 'C#'],
+      icon: Code,
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Frameworks",
+      skills: ['React', 'Flask', 'Node.js', 'PyTorch', 'TensorFlow', 'scikit-learn', 'Selenium', 'Spark', 'JUnit', 'unittest', 'Tailwind CSS'],
+      icon: Package,
+      gradient: "from-purple-500 to-pink-500"
+    },
+    {
+      title: "Developer Tools",
+      skills: ['Linux', 'AWS', 'Azure', 'Databricks', 'Docker', 'Kubernetes', 'Debugging', 'Salesforce', 'Tableau', 'Power BI', 'GitHub', 'Figma', 'Jupyter', 'Bash'],
+      icon: Wrench,
+      gradient: "from-teal-500 to-emerald-500"
+    },
+    {
+      title: "Libraries",
+      skills: ['Pandas', 'NumPy', 'spaCy', 'nltk', 'OpenAI API', 'OpenCV (cv2)', 'SAM2', 'YOLO', 'BeautifulSoup', 'lxml', 'ollama'],
+      icon: Library,
+      gradient: "from-orange-500 to-red-500"
+    }
+  ];
 
   return (
     <section id="skills" className="py-20 bg-slate-900/50">
@@ -51,18 +66,15 @@ const Skills = () => {
         </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          <SkillCard
-            title="Programming Languages"
-            skills={programmingLanguages}
-            icon={Code}
-            gradient="from-blue-500 to-cyan-500"
-          />
-          <SkillCard
-            title="Tools & Technologies"
-            skills={tools}
-            icon={Wrench}
-            gradient="from-purple-500 to-pink-500"
-          />
+          {skillCategories.map((category, index) => (
+            <SkillCard
+              key={index}
+              title={category.title}
+              skills={category.skills}
+              icon={category.icon}
+              gradient={category.gradient}
+            />
+          ))}
         </div>
       </div>
     </section>

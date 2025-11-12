@@ -12,10 +12,10 @@ const Articles = () => {
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Shimla’s Yamini, Naunidha ICSE Class XII Toppers",
+      title: "Shimla’s Yamini, Naunidha ISC Class XII Toppers",
       source: "The Tribune India",
       period: "2022",
-      description: "Coverage of my Class XII ICSE results in The Tribune, where I secured the highest scores in Himachal Pradesh.",
+      description: "Coverage of my Class XII ISC results in The Tribune, where I secured the highest scores in Himachal Pradesh.",
       link: "https://www.tribuneindia.com/news/himachal/shimlas-yamini-naunidha-icse-class-xii-toppers-507897/",
       color: "from-green-500 to-emerald-500"
     },
